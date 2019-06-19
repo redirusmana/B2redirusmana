@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/jquery-ui.min.css">
+  <link type="text/css" rel="stylesheet" href="css/font.css">
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>redir.uwin | Dashboard</title>
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+</head>
+
+
+<body class="grey lighten-3">
+
+  <!-- Navbar -->
+  <nav class="blue darken-2">
+      <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">&nbsp;Dashboard</a>
+        <a href="#" data-activates="side-nav" class="button-collapse show-on-small left">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li class="active">
+            <a href="#"><i class="material-icons">dashboard</i></a>
+          </li>
+          <li class="">
+            <a href="#"><i class="material-icons">mail</i></a>            
+          </li>          
+          <li class="">
+              <a href="#"><i class="material-icons">account_circle</i></a>            
+            </li>
+          <li class="">
+            <a href="#"><i class="material-icons">search</i></a>
+          </li>
+        </ul>
+        
+        <!-- Left Navbar -->
+        <ul id="side-nav" class="side-nav">
+          <li>
+            <div class="user-view">
+              <div class="background blue">
+               
+              </div>
+              <a href="#">
+                <img src="img/pp.jpg" alt="Admin avatar" class="circle">
+              </a>
+              <a href="#">
+                <span class="name white-text">Redi Rusmana</span>
+              </a>
+              <a href="#">
+                <span class="text white-text">Admin</span>
+              </a>
+            </div>
+          </li>
+          <li class="">
+            <a href="#" class="blue-text active"><i class="material-icons blue-text">dashboard</i>Dashboard</a>
+          </li>
+          <li class="">
+            <a href="#" class="blue-text"><i class="material-icons blue-text">mail</i>Message</a>
+          </li>
+          <li class="">
+            <a href="#" class="blue-text"><i class="material-icons blue-text">account_circle</i>Employee</a>
+          </li>          
+          <li class="">
+            <a href="#" class="blue-text"><i class="material-icons blue-text">search</i>Search</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section Reported Summary -->
+  <section class="section">
+    <div class="row">
+      <div class=" col l12">
+        <div class="card-panel white lighten-1 black-text center">
+          <h5 class="left-align">Reported Summary</h5>
+          <div class="row ">
+        <div class="col l3 m6 s12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="input-field ">
+                        <select>
+                          <option value="" disabled selected>Choose Group</option>
+                          <option value="1">Group 1</option>
+                          <option value="2">Group 2</option>
+                          <option value="3">Group 3</option>
+                        </select>
+                        <label>Group</label>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="input-field ">
+                        <select>
+                          <option value="" disabled selected>Choose Station</option>
+                          <option value="1">Station 1</option>
+                          <option value="2">Station 2</option>
+                          <option value="3">Station 3</option>
+                        </select>
+                        <label>Station</label>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="input-field ">
+                        <select >
+                          <option value="" disabled selected>Choose your Select</option>
+                          <option value="1">Select 1</option>
+                          <option value="2">Select 2</option>
+                          <option value="3">Select 3</option>
+                        </select>
+                        <label class="">Select</label>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col l3 m6 s12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="input-field ">
+                        <input type="text" class="datepicker">
+                        <label>Date</label>
+                    </div>
+                </div>
+              </div>
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>  
+  </section>
+
+
+  <!-- Section Daily Stats -->
+  <section class="section  center">
+    <div class="row">
+      <div class="col l3 m6 s12">
+        <div class="card-panel blue lighten-1 white-text center">
+          <i class="material-icons medium">multiline_chart</i>
+          <h5>Total Visitors</h5>
+          <h3 class="count">114893</h3>
+          <div class="progress grey lighten-2">
+            <div class="determinate white" style="width:60%;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col l3 m6 s12">
+        <div class="card-panel white blue-text lighten-5 center">
+          <i class="material-icons medium">show_chart</i>
+          <h5>Visitors Today</h5>
+          <h3 class="count">713</h3>
+          <div class="progress blue lighten-4">
+            <div class="determinate blue lighten-1" style="width:35%;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col l3 m6 s12">
+        <div class="card-panel blue lighten-1 white-text center">
+          <i class="material-icons medium">assignment</i>
+          <h5>New Message</h5>
+          <h3 class="count">124</h3>
+          <div class="progress grey lighten-2">
+            <div class="determinate white" style="width:80%;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col l3 m6 s12">
+        <div class="card-panel white blue-text lighten-5 center">
+          <i class="material-icons medium">rate_review</i>
+          <h5>New Review</h5>
+          <h3 class="count">338</h3>
+          <div class="progress blue lighten-4">
+            <div class="determinate blue lighten-1" style="width:50%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section Earning SplineChart dan Table Income-->
+  <section class="section">
+    <div class="row">
+      <!-- Chart -->
+      <div class="col l8 m6 s12">
+        <div class="card-panel">
+          <div id="splinechart" style="height:370px; width:100%;"></div>
+        </div>
+      </div>
+      <!-- Table -->
+      <div class="col l4 m6 s12">
+        <div class="card-panel">
+          <h5>Income Earning</h5>
+          <table class="responsive-table" id="">
+          <thead>
+            <tr>
+                <th>No</th>
+                <th>Year</th>
+                <th>Earning</th>
+                <th>Status</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2013</td>
+              <td>$1397000</td>
+              <td>Increase</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2014</td>
+              <td>$1872000 </td>
+              <td>Increase</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>2015</td>
+              <td>$2394000 </td>
+              <td>Increase</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>2016</td>
+              <td>$2140000</td>
+              <td>Decrease</td>
+            </tr>        
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="blue-text"><strong>See All >></strong></td>
+              </tr>
+          </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section Visitors Table dan BarChart Train Station -->
+  <section class="section ">
+    <div class="row">
+      <!-- Table -->
+      <div class="col l4 m6 s12">
+        <div class="card-panel">
+          <h5>Visitors</h5>
+          <table class="responsive-table" id="tables">
+          <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Visitor</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Station_1</td>
+              <td>13441</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Station_2</td>
+              <td>8485 </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Station_3</td>
+              <td>6453 </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Station_4</td>
+              <td>14494</td>
+            </tr>        
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="blue-text"><strong>See All >></strong></td>
+              </tr>
+          </tbody>
+          </table>
+          
+        </div>
+      </div>
+      <!-- Chart -->
+      <div class="col l8 m6 s12">
+        <div class="card-panel">
+          <div id="barchart" style="height:370px; width:100%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section Train Class Table dan DoughnutChart Categories -->
+  <section class="section secion-inbox-todo">
+    <div class="row">
+      <div class="col l6 m6 s12">      
+        <!-- Chart -->   
+        <div class="card-panel">
+            <div id="doughnutchart" style="height:370px; width:100%;"></div>
+          </div>
+      </div>
+      <div class="col l6 m6 s12">
+        <div class="card-panel">
+          <h5>Train Class</h5>
+          <!-- Table -->
+          <table class="responsive-table">
+          <thead>
+            <tr>
+                <th>No</th>
+                <th>Class</th>
+                <th>Visitors</th>
+                <th>Persentase</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Sleeper</td>
+              <td>15985</td>
+              <td>14.23%</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Business</td>
+              <td>24740</td>
+              <td>22.03%</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>priority</td>
+              <td>19478</td>
+              <td>17.34%</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>economy</td>
+              <td>30423</td>
+              <td>27.09%</td>
+            </tr>  
+            <tr>
+              <td>5</td>
+              <td>executive</td>
+              <td>21678</td>
+              <td>19.03%</td>
+            </tr>     
+          </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Section Inbox dan Review -->
+  <section class="section">
+      <div class="row">
+        <div class="col l6 m6 s12">
+          <ul class="collection with-header inbox">
+            <li class="collection-header">
+              <h5>Inbox</h5>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face1.jpg"  class="circle">
+              <span class="title">Tommy Aditya</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <a href="#" class="read-message blue-text">Read</a>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face3.jpg"  class="circle">
+              <span class="title">Sayid Mabrur</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <a href="#" class="read-message blue-text">Read</a> 
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face2.jpg"  class="circle">
+              <span class="title">Selvi Herawati</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <a href="#" class="read-message blue-text">Read</a>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face4.jpg"  class="circle">
+              <span class="title">Sipa Sintia</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <a href="#" class="read-message blue-text">Read</a> 
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face3.jpg"  class="circle">
+              <span class="title">Tio Handika</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <a href="#" class="read-message blue-text">Read</a>
+            </li>
+            <li class="collection-item right-align">              
+              <a href="#" class="blue-text">See All >></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col l6 m6 s12">
+          <ul class="collection ">
+            <li class="collection-header">
+              <h5>Review</h5>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face5.jpg"  class="circle">
+              <span class="title">Wahyu Rifaldi</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <span ><i class="material-icons tiny yellow-text">star</i></span>
+              <span ><i class="material-icons tiny yellow-text">star</i></span>
+              <span ><i class="material-icons tiny yellow-text">star</i></span>
+              <span ><i class="material-icons tiny yellow-text">star</i></span>
+              <span ><i class="material-icons tiny yellow-text">star_half</i></span>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face6.jpg"  class="circle">
+              <span class="title">Agista</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star_half</i></span>
+                <span ><i class="material-icons tiny yellow-text">star_border</i></span>
+                <span ><i class="material-icons tiny yellow-text">star_border</i></span>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face7.jpg"  class="circle">
+              <span class="title">Vista</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star_border</i></span>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face8.jpg"  class="circle">
+              <span class="title">Tia Alawiyah</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star_border</i></span>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face8.jpg"  class="circle">
+              <span class="title">Nengsih</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+            </li>
+            <li class="collection-item right-align">              
+              <a href="#" class="blue-text">See All >></a>
+            </li>
+          </ul>
+        </div>
+
+        
+          
+      </div>
+    </section>
+
+
+  <!-- Footer -->
+  <section class="section blue darken-2 white-text center">
+    <p>Created By @redir.uwin</p>
+  </section>
+
+
+  <!-- Floating Button -->
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue">
+      <i class="material-icons">add</i>
+    </a>
+    <ul>
+      <li>
+        <a href="#modal-announcment" class="modal-trigger btn-floating blue darken-2">
+          <i class="material-icons">mode_edit</i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+  <!-- Modal -->
+  <div id="modal-announcment" class="modal">
+    <div class="modal-content">
+      <h4>Add Announcment</h4>
+      <form>
+        <div class="input-field">
+          <input type="text" id="title">
+          <label for="title">Title</label>
+        </div>
+        
+        <div class="input-field">
+          <textarea name="body" class="materialize-textarea"></textarea>
+          <label for="body">Desc</label>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <a href="#!" class="waves-effect waves-light modal-action modal-close btn blue white-text">Cancel</a>
+        <a class="waves-effect waves-light btn blue white-text">Submit</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Preloader -->
+  
+  <div class="loader preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/canvasjs.min.js"></script>
+  <script type="text/javascript" src="js/charts.js"></script>
+
+  <script>
+    
+    $(".section").hide();
+    setTimeout(() => {
+      $(document).ready(() => {
+
+        $(".loader").fadeOut();
+   
+        $(".section").fadeIn();
+
+        $(".button-collapse").sideNav();
+
+        $(".modal").modal();
+
+        $("select").material_select();        
+        $('.datepicker').datepicker();
+
+        $(".count").each(function () {
+          $(this).prop("Counter", 0).animate({
+            Counter: $(this).text()
+          }, {
+              duration: 1250,
+              easing: "swing",
+              step: function (now) {
+                $(this).text(Math.ceil(now));
+              }
+            });
+        });
+
+        $(".read-message").click(function (e) {
+          Materialize.toast("Mark As Read", 3000);
+          e.preventDefault();
+        });
+
+      });
+    }, 1000);
+
+  </script>
+</body>

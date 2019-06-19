@@ -1,0 +1,914 @@
+Dalam Pembuatan Dashboard ini saya menggunakan :
+    1. Framework:
+        a. Materialize   
+            Semua class css yang saya gunakan hampir semuanya sudah tersedia di materialize.min.css dan style.css
+        b. Material Icons
+            Semua class icon yang saya gunakan juga berasal dari source code importan materialIcons.woff2 
+            yang panggil font.css
+
+    2. Library
+        a. Canvasjs
+            Chart yang saya buat berasal dari library canvasjs ini, dengan canvasjs saya dapat membuat berbagai
+            Chart serta configurasinya sesuai keinginan kita, pemakaianyapun tergolong simple dan mudah dipahami
+        b. Jquery
+            Library yang dibutuhkan untuk menjalankan library lainnya
+        c. Jquery Ui
+            Saya menggunakan Jquery UI untuk mengGet Kalender Karena Library Jquery saya jquery-3.2.1.min.js 
+            tidak support dengan materialize.min.js dalam mengGet kalender/datepicker().
+        d. Materialize        
+            Semua animasi yang saya gunakan selain pada Chart semuanya sudah tersedia di materialize.min.js, 
+            kita hanya perlu mengConfigurasi animasinya, tentunya dengan libary Jquerynya.
+
+//Pemanggilan file file css
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+<link type="text/css" rel="stylesheet" href="css/jquery-ui.min.css">
+<link type="text/css" rel="stylesheet" href="css/font.css">
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+//Title
+<title>redir.uwin | Dashboard</title>
+  
+//Icon Pada Title
+<link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+//Warna Background keseluruhan body
+//class warna "grey lighten-3" abu-abu
+<body class="grey lighten-3">
+
+//class warna "blue darken-2" biru
+<nav class="blue darken-2"> 
+
+//class "container" menambahkan padding left dan right
+<div class="container">
+
+//class "nav-wrapper" pembungkus navbar, atau lapisan paling luar navbar
+<div class="nav-wrapper"> 
+
+//class "brand-logo" dikhususkan untuk logo pada navbar
+<a href="#" class="brand-logo">&nbsp;Dashboard</a> 
+
+//Class yang memunculkan Button collapse disebelah kiri ketika tampilan browser diresize perkecil
+<a href="#" data-activates="side-nav" class="button-collapse show-on-small left">
+//class "material-icons" memunculkan icon menu yang disediakan material icon
+<i class="material-icons">menu</i>
+</a>
+
+//Menu Menu pada Navbar yang menggukan Icon
+//class Active memberikan background gelap yang menandakan menu sedang aktif
+//class "material-icons" memunculkan icon menu yang disediakan material icon
+<ul class="right hide-on-med-and-down">          
+    <li class="active">
+        <a href="#"><i class="material-icons">dashboard</i></a>
+    </li>
+    <li class="">
+        <a href="#"><i class="material-icons">mail</i></a>            
+    </li>          
+    <li class="">
+        <a href="#"><i class="material-icons">account_circle</i></a>            
+    </li>
+    <li class="">
+        <a href="#"><i class="material-icons">search</i></a>
+    </li>
+</ul>
+
+//Class Side Nav memunculkan navbar disamping ketika Button collapse diatas di klik
+<ul id="side-nav" class="side-nav">
+
+//Class User-view menampilkan Profil mengenai Admin
+//class warna "blue"
+//class warna text "white-text"
+//class "material-icons" memunculkan icon menu yang disediakan material icon
+//class circle membulatkan gambar
+<li><div class="user-view">
+    <div class="background blue"></div>
+    <a href="#">
+        <img src="img/pp.jpg" alt="Admin avatar" class="circle">
+    </a>
+    <a href="#">
+        <span class="name white-text">Redi Rusmana</span>
+    </a>
+    <a href="#">
+        <span class="text white-text">Admin</span>
+    </a>
+</div></li>
+
+//Menu Menu yang menggunakan Icon yang sama pada Navbar 
+//class warna text dan icon"blue-text"
+<li class="">
+    <a href="#" class="blue-text active"><i class="material-icons blue-text">dashboard</i>Dashboard</a>
+</li>
+<li class="">
+    <a href="#" class="blue-text"><i class="material-icons blue-text">mail</i>Message</a>
+</li>
+<li class="">
+    <a href="#" class="blue-text"><i class="material-icons blue-text">account_circle</i>Employee</a>
+</li>          
+<li class="">
+    <a href="#" class="blue-text"><i class="material-icons blue-text">search</i>Search</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+
+<section class="section">
+  <div class="row">
+  //Grid Materialize
+  //col l digunakan untuk layar browser full // laptop/pc 
+  //col m digunakan untuk layar browser setengah // tablet
+  //col s digunakan untuk layar browser kecil //handphone
+  //col terdiri dari 12, tergantung kebutuhan kita ketika membutuhkanya
+  // jika 1/1 = 12
+  // jika 1/2 = 6 6
+  // jika 1/3 = 4 4 4
+  // jika 1/4 = 3 3 3 3 -> Yang saya gunakan
+  // jika 1/5 = 3 2 2 2 3
+  // jika 1/6 = 2 2 2 2 2 2
+  // dan seterusnya
+    <div class=" col l12">
+    // Card Panel ialah pembungkus card atau lapisan card paling luar
+    // class warna "white lighten-1"
+    // class warna text "black-text"
+    // class left-align membuat text rata kiri
+      <div class="card-panel white lighten-1 black-text center">
+        <h5 class="left-align">Reported Summary</h5>
+        <div class="row ">      
+      //col l3 class ketika layar full maka akan 1/4
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l3 m6 s12">
+          <div class="card">
+              //isi dari card
+              <div class="card-content">
+                  //style untuk inputan
+                  <div class="input-field">
+                      //Dropdown select
+                      <select>
+                        <option value="" disabled selected>Choose Group</option>
+                        <option value="1">Group 1</option>
+                        <option value="2">Group 2</option>
+                        <option value="3">Group 3</option>
+                      </select>
+                      //Label pada inputan
+                      <label>Group</label>
+                  </div>
+              </div>
+            </div>
+      </div>
+      //col l3 class ketika layar full maka akan 1/4
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l3 m6 s12"">
+          <div class="card">
+              //isi dari card
+              <div class="card-content">
+                  //style untuk inputan
+                  <div class="input-field">
+                      //Dropdown select
+                      <select>
+                        <option value="" disabled selected>Choose Station</option>
+                        <option value="1">Station 1</option>
+                        <option value="2">Station 2</option>
+                        <option value="3">Station 3</option>
+                      </select>
+                      <label>Station</label>
+                  </div>
+              </div>
+            </div>
+      </div>
+      //col l3 class ketika layar full maka akan 1/4
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l3 m6 s12"">
+          <div class="card">
+              //isi dari card
+              <div class="card-content">
+                  //style untuk inputan
+                  <div class="input-field">
+                      //Dropdown select
+                      <select >
+                        <option value="" disabled selected>Choose your Select</option>
+                        <option value="1">Select 1</option>
+                        <option value="2">Select 2</option>
+                        <option value="3">Select 3</option>
+                      </select>
+                      <label class="">Select</label>
+                  </div>
+              </div>
+            </div>
+      </div>
+      //col l3 class ketika layar full maka akan 1/4
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l3 m6 s12"">
+          <div class="card">
+              //isi dari card
+              <div class="card-content">
+                  //style untuk inputan
+                  <div class="input-field">
+                      // pemganggilan datepicker // library untuk menGet tanggal
+                      <input type="text" class="datepicker">
+                      <label>Date</label>
+                  </div>
+              </div>
+            </div>
+      </div>
+      </div>
+      </div>
+      </div>
+    </div>  
+  </section>
+
+
+  <!-- Section Daily Stats -->
+  //center agar tulisan rata tengah
+  <section class="section center">
+    <div class="row">
+      //col l3 class ketika layar full maka akan dibagi 1/4
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l3 m6 s12">
+        <div class="card-panel blue lighten-1 white-text center">
+          //pemganggilan icon material
+          <i class="material-icons medium">multiline_chart</i>
+          <h5>Total Visitors</h5>
+          <h3 class="count">114893</h3>
+          //class "progress" "determinate" loader bar 
+          <div class="progress grey lighten-2">
+            <div class="determinate white" style="width:60%;"></div>
+          </div>
+        </div>
+      </div>
+      //col l3 class ketika layar full maka akan 1/4
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l3 m6 s12">
+        <div class="card-panel white blue-text lighten-5 center">
+          <i class="material-icons medium">show_chart</i>
+          <h5>Visitors Today</h5>
+          <h3 class="count">713</h3>
+          <div class="progress blue lighten-4">
+            <div class="determinate blue lighten-1" style="width:35%;"></div>
+          </div>
+        </div>
+      </div>
+      //col l3 class ketika layar full maka akan 1/4
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l3 m6 s12">
+        <div class="card-panel blue lighten-1 white-text center">
+          <i class="material-icons medium">assignment</i>
+          <h5>New Message</h5>
+          <h3 class="count">124</h3>
+          <div class="progress grey lighten-2">
+            <div class="determinate white" style="width:80%;"></div>
+          </div>
+        </div>
+      </div>
+      //col l3 class ketika layar full maka akan 1/4
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l3 m6 s12">
+        <div class="card-panel white blue-text lighten-5 center">
+          <i class="material-icons medium">rate_review</i>
+          <h5>New Review</h5>
+          <h3 class="count">338</h3>
+          <div class="progress blue lighten-4">
+            <div class="determinate blue lighten-1" style="width:50%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section Earning SplineChart dan Table Income-->
+  <section class="section">
+    <div class="row">
+      <!-- Chart -->
+      //col l8 class ketika layar full maka akan dibagi 2/3
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l8 m6 s12">
+        <div class="card-panel">
+        //id splinechart pemganggilan splinechart
+        //Liblary canvasjs
+        //Confignya di charts.js
+          <div id="splinechart" style="height:370px; width:100%;"></div>
+        </div>
+      </div>
+      <!-- Table -->
+      //col l4 class ketika layar full maka akan dibagi 2/3
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l4 m6 s12">
+        <div class="card-panel">
+          <h5>Income Earning</h5>
+          <table class="responsive-table" >
+          <thead>
+            <tr>
+                <th>No</th>
+                <th>Year</th>
+                <th>Earning</th>
+                <th>Status</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>2013</td>
+              <td>$1397000</td>
+              <td>Increase</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2014</td>
+              <td>$1872000 </td>
+              <td>Increase</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>2015</td>
+              <td>$2394000 </td>
+              <td>Increase</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>2016</td>
+              <td>$2140000</td>
+              <td>Decrease</td>
+            </tr>        
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="blue-text"><strong>See All >></strong></td>
+              </tr>
+          </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section Visitors Table dan BarChart Train Station -->
+  <section class="section ">
+    <div class="row">
+      <!-- Table -->
+      //col l4 class ketika layar full maka akan dibagi 1/3
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l4 m6 s12">
+        <div class="card-panel">
+          <h5>Visitors</h5>
+          <table class="responsive-table" id="tables">
+          <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Visitor</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Station_1</td>
+              <td>13441</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Station_2</td>
+              <td>8485 </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Station_3</td>
+              <td>6453 </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Station_4</td>
+              <td>14494</td>
+            </tr>        
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="blue-text"><strong>See All >></strong></td>
+              </tr>
+          </tbody>
+          </table>
+          
+        </div>
+      </div>
+      <!-- Chart -->
+      //col l8 class ketika layar full maka akan dibagi 2/3
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l8 m6 s12">
+        <div class="card-panel">
+        //id barChart pemganggilan barChart
+        //Liblary canvasjs
+        //Confignya di charts.js
+          <div id="barchart" style="height:370px; width:100%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section Train Class Table dan DoughnutChart Categories -->
+  <section class="section">
+    <div class="row">
+      //col l6 class ketika layar full maka akan dibagi 1/2
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l6 m6 s12">      
+        <!-- Chart -->   
+        <div class="card-panel">
+        //id doughnutchart pemganggilan doughnutchart
+        //Liblary canvasjs
+        //Confignya di charts.js
+            <div id="doughnutchart" style="height:370px; width:100%;"></div>
+          </div>
+      </div>
+      //col l6 class ketika layar full maka akan dibagi 1/2
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+      <div class="col l6 m6 s12">
+        <div class="card-panel">
+          <h5>Train Class</h5>
+          <!-- Table -->
+          <table class="responsive-table">
+          <thead>
+            <tr>
+                <th>No</th>
+                <th>Class</th>
+                <th>Visitors</th>
+                <th>Persentase</th>
+            </tr>
+          </thead>
+    
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Sleeper</td>
+              <td>15985</td>
+              <td>14.23%</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Business</td>
+              <td>24740</td>
+              <td>22.03%</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>priority</td>
+              <td>19478</td>
+              <td>17.34%</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>economy</td>
+              <td>30423</td>
+              <td>27.09%</td>
+            </tr>  
+            <tr>
+              <td>5</td>
+              <td>executive</td>
+              <td>21678</td>
+              <td>19.03%</td>
+            </tr>     
+          </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Section Inbox dan Review -->
+  <section class="section secion-inbox-todo">
+      <div class="row">
+      //col l6 class ketika layar full maka akan dibagi 1/2
+      //col m6 class ketika layar Setengah maka akan dibagi 1/2
+      //col s12 class ketika layar full maka akan dibagi 1/1
+        <div class="col l6 m6 s12">
+        //Class "collection" list dengan style
+        //Class "collection-header" title pada list
+          <ul class="collection">
+            <li class="collection-header">
+              <h5>Inbox</h5>
+            </li>            
+            //Class "collection-item" Isi Isi dari listnya
+            //Class "avatar" jenis collection list pada materialize
+            //Class "circle" untuk membuat gambar bulat
+            <li class="collection-item avatar">
+              <img src="img/face1.jpg"  class="circle">
+              <span class="title">Tommy Aditya</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <a href="#" class="read-message blue-text">Read</a>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face3.jpg"  class="circle">
+              <span class="title">Sayid Mabrur</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <a href="#" class="read-message blue-text">Read</a> 
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face2.jpg"  class="circle">
+              <span class="title">Selvi Herawati</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <a href="#" class="read-message blue-text">Read</a>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face4.jpg"  class="circle">
+              <span class="title">Sipa Sintia</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <a href="#" class="read-message blue-text">Read</a> 
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face3.jpg"  class="circle">
+              <span class="title">Tio Handika</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <a href="#" class="read-message blue-text">Read</a>
+            </li>
+            //right-align tulisan rata kanan
+            <li class="collection-item right-align">              
+              <a href="#" class="blue-text">See All >></a>
+            </li>
+          </ul>
+        </div>
+
+        //col l6 class ketika layar full maka akan dibagi 1/2
+        //col m6 class ketika layar Setengah maka akan dibagi 1/2
+        //col s12 class ketika layar full maka akan dibagi 1/1
+        <div class="col l6 m6 s12">
+          <ul class="collection with-header inbox">
+          //Class "collection" list dengan style
+          //Class "collection-header" title pada list
+            <li class="collection-header">
+              <h5>Review</h5>
+            </li>
+            //Class "collection-item" Isi Isi dari listnya
+            //Class "avatar" jenis collection list pada materialize
+            //Class "circle" untuk membuat gambar bulat
+            <li class="collection-item avatar">
+              <img src="img/face5.jpg"  class="circle">
+              <span class="title">Wahyu Rifaldi</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+              <span ><i class="material-icons tiny yellow-text">star</i></span>
+              <span ><i class="material-icons tiny yellow-text">star</i></span>
+              <span ><i class="material-icons tiny yellow-text">star</i></span>
+              <span ><i class="material-icons tiny yellow-text">star</i></span>
+              <span ><i class="material-icons tiny yellow-text">star_half</i></span>
+            </li>
+            <li class="collection-item avatar">
+            
+              <img src="img/face6.jpg"  class="circle">
+              <span class="title">Agista</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star_half</i></span>
+                <span ><i class="material-icons tiny yellow-text">star_border</i></span>
+                <span ><i class="material-icons tiny yellow-text">star_border</i></span>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face7.jpg"  class="circle">
+              <span class="title">Vista</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star_border</i></span>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face8.jpg"  class="circle">
+              <span class="title">Tia Alawiyah</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star_border</i></span>
+            </li>
+            <li class="collection-item avatar">
+              <img src="img/face8.jpg"  class="circle">
+              <span class="title">Nengsih</span>
+              <p class="truncate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem libero sunt non error animi quibusdam velit eos
+                ut soluta blanditiis, et eius minima repellat nostrum, in perferendis porro? Rerum, voluptate.</p>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+                <span ><i class="material-icons tiny yellow-text">star</i></span>
+            </li>
+            //right-align tulisan rata kanan            
+            <li class="collection-item right-align">              
+              <a href="#" class="blue-text">See All >></a>
+            </li>
+          </ul>
+        </div>
+
+        
+          
+      </div>
+    </section>
+
+
+  <!-- Footer -->
+  <section class="section blue darken-2 white-text center">
+    <p>Created By @redir.uwin</p>
+  </section>
+
+
+  //fixed-action-btn posisi tetap Button
+  //btn-floating jenis button
+  //btn-large Ukuran Button
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large blue">
+      <i class="material-icons">add</i>
+    </a>
+    <ul>
+      <li>
+      //modal-trigger button untuk memunculkan modal
+      //#modal-announcment disesuikan dengan id modal yang akan dimunculkN
+        <a href="#modal-announcment" class="modal-trigger btn-floating blue darken-2">
+          <i class="material-icons">mode_edit</i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+  <!-- Modal -->
+  //modal yang akan dimunculkan
+  <div id="modal-announcment" class="modal">
+    <div class="modal-content">
+      <h4>Add Announcment</h4>
+      //form pada modal
+      <form>
+        <div class="input-field">
+          <input type="text" id="title">
+          <label for="title">Title</label>
+        </div>
+        
+        <div class="input-field">
+          <textarea name="body" class="materialize-textarea"></textarea>
+          <label for="body">Desc</label>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <a href="#!" class="waves-effect waves-light modal-action modal-close btn blue white-text">Cancel</a>
+        <a class="waves-effect waves-light btn blue white-text">Submit</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  //preloader pada materialize
+  <div class="loader preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+//Pemanggilan file file libary js
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/canvasjs.min.js"></script>
+  <script type="text/javascript" src="js/charts.js"></script>
+
+  <script>
+
+    // Menhide semua section
+    $(".section").hide();
+    setTimeout(() => {
+      $(document).ready(() => {
+
+        // Memunculkan Loader
+        $(".loader").fadeOut();
+   
+        // Memunculkan Semua Section
+        $(".section").fadeIn();
+
+        // Memunculkan Button Left Navbar ketika tampilan browser diresize
+        $(".button-collapse").sideNav();
+
+        // Modal
+        $(".modal").modal();
+
+        // Dropdown dan tanggal pada Section Reported Summary
+        $("select").material_select();        
+        $('.datepicker').datepicker();
+
+        // Animasi Hitungan Angka pada Section Daily Stats
+        $(".count").each(function () {
+          $(this).prop("Counter", 0).animate({
+            Counter: $(this).text()
+          }, {
+              duration: 1250,
+              easing: "swing",
+              step: function (now) {
+                $(this).text(Math.ceil(now));
+              }
+            });
+        });
+
+        // Pop Up Inbox
+        $(".read-message").click(function (e) {
+          Materialize.toast("Mark As Read", 3000);
+          e.preventDefault();
+        });
+
+      });
+    }, 1000);
+
+  </script>
+
+
+Chart.js
+window.onload = function () {
+  //array Untuk Variasi Warna
+  //"blueTheme" nama array warnanya
+  CanvasJS.addColorSet("blueTheme",
+                [
+                "#039be5",
+                "#0288d1",
+                "#0277bd",
+                "#01579b",
+                "#1e88e5",
+                "#1976d2",
+                "#1565c0",
+                "#0d47a1",
+                "#03a9f4"                
+                ]);
+
+  //chart1 variable chart yang akan dirender dibawah
+  //"splinechart" id yang akan dipanggil di html
+  //animationEnabled: true animasi chart pada awal munculnya
+  //colorSet: "blueTheme", pemakaian warna dengan array warna diatas
+  var chart1 = new CanvasJS.Chart("splinechart", {
+    animationEnabled: true,
+    colorSet: "blueTheme",
+    title:{ 
+    //fontFamily: "tahoma" jenis font pada title
+    //text: "Income Every Year" text yang ditampilkan pada title      
+      fontFamily: "tahoma",
+      text: "Income Every Year"
+    },
+    axisY: {
+      //title: "Eaerning" text yang ditampilkan pada title disamping kiri
+      //valueFormatString: "$####" format penulisan text disamping kiri
+      title: "Eaerning",
+      valueFormatString: "$####",
+      
+      // stripLines: garis lurus mendatar
+      stripLines: [{
+        value: 2500000, //nilai dari garis lurus mendatar
+        color: "#01579b", //Warna dari garis lurus mendatar
+        labelFontColor: "#01579b",//warna text label dari garis lurus mendatar
+        label: "Average" //label dari garis lurus mendatar
+      }]
+    },
+    data: [{
+      //type: "spline" jenis chart
+      //xValueFormatString: "YYYY" format penulisan tahun
+      yValueFormatString: "$####",
+      xValueFormatString: "YYYY",
+      type: "spline", 
+      //Array Data
+      dataPoints: [
+        { x: new Date(2012, 0), y: 1397000 },
+        { x: new Date(2013, 0), y: 1872000 },
+        { x: new Date(2014, 0), y: 2394000 },
+        { x: new Date(2015, 0), y: 2140000 },
+        { x: new Date(2016, 0), y: 2506000 },
+        { x: new Date(2017, 0), y: 3386000 },
+        { x: new Date(2018, 0), y: 2798000 },
+        { x: new Date(2019, 0), y: 6704000 },
+        { x: new Date(2020, 0), y: 6026000 }
+      ]
+    }]
+  });
+
+  //chart2 variable chart yang akan dirender dibawah
+  //"barchart" id yang akan dipanggil di html
+  //animationEnabled: true animasi chart pada awal munculnya
+  //theme: "light2" tema dari chart
+  //colorSet: "blueTheme", pemakaian warna dengan array warna diatas
+  var chart2 = new CanvasJS.Chart("barchart", {
+    animationEnabled: true,
+    theme: "light2", 
+    title:{
+      //fontFamily: "tahoma" jenis font pada title
+      //text: "Income Every Year" text yang ditampilkan pada title
+      //fontWeight:"lighter" ketebalan text
+      //fontSize:"28" ukuran font
+      fontFamily: "Tahoma",
+      text: "Train Station",
+      fontWeight:"lighter",
+      fontSize:"28"
+    },
+    //colorSet: "blueTheme", pemakaian warna dengan array warna diatas
+    colorSet: "blueTheme",
+    axisY: {
+      //title: "Visitor" text yang ditampilkan pada title disamping kiri
+      title: "Visitor"
+    },
+    data: [{        
+      //type: "column" jenis chart
+      //showInLegend: true Menampilkan teks dibawah chart
+      //LegendText: "Total Visitors = 114893" Isi dari teksnya
+      type: "column",  
+      showInLegend: true, 
+      legendText: "Total Visitors = 114893",
+      //Array Data
+      dataPoints: [
+        { y: 13441,  label: "Station_1" },
+        { y: 8485,  label: "Station_2" },
+        { y: 6453,  label: "Station_3" },
+        { y: 14494, label: "Station_4" },
+        { y: 12485,  label: "Station_5" },
+        { y: 11472,  label: "Station_6" },
+        { y: 7446,  label: "Station_7" },
+        { y: 12419,  label: "Station_8" },
+        { y: 8419, label: "Station_9" },
+        { y: 9490,  label: "Station_10" }
+      ]
+    }]
+  });
+
+  //chart3 variable chart yang akan dirender dibawah
+  //"doughnutchart" id yang akan dipanggil di html
+  //animationEnabled: true animasi chart pada awal munculnya
+  //colorSet: "blueTheme", pemakaian warna dengan array warna diatas
+  var chart3 = new CanvasJS.Chart("doughnutchart", {
+    animationEnabled: true,
+    title:{
+      //fontFamily: "tahoma" jenis font pada title
+      //text: "Categories" text yang ditampilkan pada title
+      //horizontalAlign: "left" text rata kiri
+      fontFamily: "tahoma",
+      text: "Categories",
+      horizontalAlign: "left"
+    },
+    colorSet: "blueTheme",
+    data: [{
+      //type: "doughnut" jenis chart
+      //indexLabelFontSize: 17, ukuran text label
+      //indexLabel: "{label} - #percent%" menampilkan label beserta persentase jumlah
+      //toolTipContent: "<b>{label}:</b> {y} (#percent%)" memunculkan label beserta persentase jumlah ketika dihover
+      type: "doughnut",
+      startAngle: 60,
+      indexLabelFontSize: 17,
+      indexLabel: "{label} - #percent%",
+      toolTipContent: "<b>{label}:</b> {y} (#percent%)", 
+      //Array Data
+      dataPoints: [
+        { y: 21678,  label: "Executive" },
+        { y: 30423,  label: "Economy" },
+        { y: 19478,  label: "Priority" },
+        { y: 24740, label: "Business" },
+        { y: 15985,  label: "Sleeper" }
+      ]
+    }]
+  });
+
+  setTimeout(() => {
+    //chart chart yang akan ditampilkan
+    chart1.render(); 
+    chart2.render();
+    chart3.render();
+  }, 1000); //settingan durasi kemunculannya
+
+}
+
